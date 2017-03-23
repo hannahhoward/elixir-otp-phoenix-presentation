@@ -20,7 +20,7 @@ import {
   Quote,
   Slide,
   Spectacle,
-  Text,
+  Text
 } from "spectacle";
 
 // Import image preloader util
@@ -56,7 +56,7 @@ const images = {
   vogueing: require("../assets/vogueing.jpg"),
   win31: require("../assets/win31.png"),
   zoolander: require("../assets/zoolander.gif"),
-  katniss: require("../assets/katniss.gif"),
+  katniss: require("../assets/katniss.gif")
 };
 
 preloader(images);
@@ -75,7 +75,7 @@ const theme = createTheme({
 const _alignCenter = {
   alignItems: "center",
   height: "550px",
-  marginTop: "40px",
+  marginTop: "40px"
 };
 
 const notes = {
@@ -107,13 +107,9 @@ const notes = {
     To serve many people at once, a web application is spread across many computers over a network
     At it's most basic level, as server is one computer that sends HTML, and the user views it on a different computer called a browser
   `,
-  stateNotCool: `
-    <ul>
-      <li>Everyone loves the idea of stateless everything</li>
-      <li>Stateless components</li>
-      <li>Stateless authentication</li>
-      <li>No mutable state</li>
-    </ul>
+  managingState: `
+    <p>Managing state is hard. If you let it get spread the storing and mutating, or changing, or your state across your program, your program behaves unpredictably</p>
+    <p>Most solutions for state management have to do with isolating the places you store and modify state in your program</p>
   `,
   hiddenSystem: `
     if you've done traditional web server programming (Ruby on Rails, Django, most PHP apps), you've been using an elaborate and well thought out method for building a distributed system
@@ -153,7 +149,7 @@ const notes = {
   stateNeedsMoreWork: `
     You could technically stop there. But we learn some more things...
   `,
-  default: "",
+  default: ""
 };
 
 export default class Presentation extends React.Component {
@@ -209,7 +205,7 @@ export default class Presentation extends React.Component {
             This is a talk about Elixir and Phoenix
           </Heading>
           <Heading size={1} fit caps textColor="quartenary">
-            for languages switchers and mid level folks
+            for language switchers and mid level folks
           </Heading>
           <Appear>
             <Heading size={1} fit caps textColor="secondary">
@@ -217,12 +213,28 @@ export default class Presentation extends React.Component {
             </Heading>
           </Appear>
         </Slide>
+        <Slide transition={["slide"]} bgColor="primary" notes="">
+            <Heading size={4} caps textColor="quartenary">
+              Overview
+            </Heading>
+            <List ordered textColor="secondary">
+              <ListItem>
+                Why People Are Switching To Elixir And Phoenix
+              </ListItem>
+              <ListItem>
+                Ways We Build Web Applications vs the "Erlang Model""
+              </ListItem>
+              <ListItem>
+                How To Utilize Erlang and OTP To Enhance Phoenix Applications
+              </ListItem>
+            </List>
+        </Slide>
         <Slide>
           <Heading size={1} fit caps lineHeight={1} textColor="secondary">
             Note To The Erlang Gods
           </Heading>
           <Image src={images.katniss.replace("/", "")} height="300px" margin="40px auto 0px"/>
-        </Slide>          
+        </Slide>
         <Slide transition={["slide"]} bgColor="black" notes={notes.existingPerspective}>
           <BlockQuote>
             <Quote>"I want to use Elixir and Phoenix cause it's just like Ruby and Rails but faster"</Quote>
@@ -242,7 +254,6 @@ export default class Presentation extends React.Component {
         <Slide transition={["slide"]} bgColor="black" notes={notes.rewindFaster}>
           <Heading size={3} fit caps textColor="primary">
             But let's rewind...
-            
           </Heading>
           <Appear>
             <Heading size={1} fit caps textColor="primary">
@@ -329,7 +340,7 @@ export default class Presentation extends React.Component {
               <br />
               All that you Change Changes you.
               <br />
-              The only lasting truthis Change.
+              The only lasting truth is Change.
               <br />
               God is Change."
             </Quote>
@@ -355,30 +366,7 @@ export default class Presentation extends React.Component {
             The internal condition of an application
           </Text>
         </Slide>
-        <Slide transition={["slide"]} bgColor="black" notes={notes.stateNotCool}>
-          <Heading size={1} fit caps textColor="primary">
-            States been getting a bad name these days...
-          </Heading>
-          <Image src={images.meangirls.replace("/", "")} height="500px" margin="40px auto 0px" />
-        </Slide>
-        <Slide transition={["slide"]} bgColor="black" notes="">
-          <Heading size={1} fit caps textColor="primary">
-            State is why web programmers have jobs
-          </Heading>
-        </Slide>
-        <Slide transition={["slide"]} bgColor="black" notes="">
-          <Heading size={1} fit caps textColor="primary">
-            A truly stateless web application
-          </Heading>
-          <Text textColor="tertiary">
-            http://info.cern.ch/hypertext/WWW/TheProject.html
-          </Text>
-          <Image src={images.firstWebsite.replace("/", "")} width="500px" margin="40px auto 0px" />
-        </Slide>
-        <Slide transition={["slide"]} bgColor="black" notes="">
-          <Text textColor="tertiary">
-            What we mean:
-          </Text>
+        <Slide transition={["slide"]} bgColor="black" notes={notes.managingState}>
           <Heading size={1} fit caps textColor="primary">
             Managing state is hard
           </Heading>
@@ -401,7 +389,7 @@ export default class Presentation extends React.Component {
           </Text>
         </Slide>
         <Slide transition={["slide"]} bgColor="black" notes="">
-          <Heading size={1} fit caps textColor="primary">
+          <Heading size={4} caps textColor="primary">
             And that's what the rest of this talk is about...
           </Heading>
         </Slide>
@@ -481,7 +469,7 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide transition={["slide"]} bgColor="black" notes="">
           <Text textColor="tertiary">
-            Scalability bottle neck:             
+            Scalability bottle neck:
           </Text>
           <Heading size={1} fit caps textColor="primary">
             The database
@@ -489,7 +477,7 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide transition={["slide"]} bgColor="black" notes="">
           <Text textColor="tertiary">
-            Scalability bottle neck 2:             
+            Scalability bottle neck 2:
           </Text>
           <Heading size={1} fit caps textColor="primary">
             Realtime
@@ -497,7 +485,7 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide transition={["slide"]} bgColor="black" notes="">
           <Text textColor="tertiary">
-            Reasons for this model:          
+            Reasons for this model:
           </Text>
           <Heading size={1} fit caps textColor="primary">
             Traditional programming languages?
@@ -527,7 +515,7 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide transition={["slide"]} bgColor="black" notes="">
           <Text textColor="tertiary">
-            Erlang Concurrency Part 1:            
+            Erlang Concurrency Part 1:
           </Text>
           <Heading size={1} fit caps textColor="primary">
             Actor Pattern
@@ -547,7 +535,7 @@ export default class Presentation extends React.Component {
           <Heading size={4} caps textColor="primary">
             Message passing is asychronous, but messages arrive in the order they're sent
           </Heading>
-        </Slide>     
+        </Slide>
         <Slide transition={["slide"]} bgColor="black" notes="">
           <Heading size={1} fit caps textColor="primary">
             Actor Pattern
@@ -559,9 +547,9 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide transition={["slide"]} bgColor="black" notes="">
           <Text textColor="tertiary">
-            Erlang Concurrency Solution #2:            
+            Erlang Concurrency Solution #2:
           </Text>
-          <Heading size={1} fit caps textColor="primary">
+          <Heading size={4} caps textColor="primary">
             A VM that replicates preemptive scheduling from an Operating System
           </Heading>
         </Slide>
@@ -572,15 +560,15 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide transition={["slide"]} bgColor="black" notes="">
           <Text textColor="tertiary">
-            Digression:           
+            Digression:
           </Text>
           <Heading size={1} fit caps textColor="primary">
-            Preemptive vs coorporative scheduling
+            Preemptive vs cooperative scheduling
           </Heading>
         </Slide>
         <Slide transition={["slide"]} bgColor="black" notes={notes.noOsConcurrency}>
           <Text textColor="tertiary">
-            Why not delegate to the OS?          
+            Why not delegate to the OS?
           </Text>
           <Heading size={4} caps textColor="primary">
             OS processes = slow to create, lots of memory
@@ -603,7 +591,7 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide transition={["slide"]} bgColor="black" notes="">
           <Text textColor="tertiary">
-            State Management In Erlang:           
+            State Management In Erlang:
           </Text>
           <Heading size={1} fit caps textColor="primary">
             The OTP
@@ -626,7 +614,7 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide transition={["slide"]} bgColor="black" notes="">
           <Text textColor="tertiary">
-            OTP:         
+            OTP:
           </Text>
           <Heading size={4} caps textColor="primary">
             A standard library on steroids that makes handling distributed state way easier!
@@ -640,7 +628,7 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide transition={["slide"]} bgColor="black" notes="">
           <BlockQuote>
-            <Quote>"Well supply the abstractions, you supply the implementation!"</Quote>
+            <Quote>"We'll supply the abstractions, you supply the implementation!"</Quote>
             <Cite>- future Erlang/OTP marketing campaign</Cite>
           </BlockQuote>
         </Slide>
@@ -651,27 +639,27 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide transition={["slide"]} bgColor="black" notes="">
           <Text textColor="tertiary">
-            Behaviors:         
+            Behaviors:
           </Text>
-          <Heading size={1} fit caps textColor="primary">
-            Abstractions for writing processes that handle state       
-          </Heading>   
+          <Heading size={4} caps textColor="primary">
+            Abstractions for writing processes that handle state
+          </Heading>
         </Slide>
         <Slide transition={["slide"]} bgColor="black" notes="">
           <Text textColor="tertiary">
-            Most common behavior:    
+            Most common behavior:
           </Text>
           <Heading size={4} caps textColor="primary">
-            GenServer is process that maintains a permaneant state over time     
-          </Heading>    
+            GenServer is process that maintains a permanent state over time
+          </Heading>
         </Slide>
         <Slide transition={["slide"]} bgColor="black" notes="">
           <Text textColor="tertiary">
             Two ways to talk to a Genserver
           </Text>
           <List textColor="primary">
-            <ListItem>Send it a message expecting a reply (synchronous) - "CALL"</ListItem>
-            <ListItem>Send asdfads mesage not expecting a reply (asynchronous) - "CAST"</ListItem>
+            <ListItem>Send a message expecting a reply (synchronous) - "CALL"</ListItem>
+            <ListItem>Send a mesage not expecting a reply (asynchronous) - "CAST"</ListItem>
           </List>
         </Slide>
         <Slide transition={["slide"]} bgColor="black" notes="">
@@ -752,37 +740,25 @@ export default class Presentation extends React.Component {
           </Layout>
         </Slide>
         <Slide transition={["slide"]} bgColor="black" notes="">
-          <Text textColor="tertiary">
-            Elixir offers two even simpler versions GenServers
-          </Text>
-          <List textColor="primary">
-            <ListItem>Task - I just wanna do some background processing</ListItem>
-            <ListItem>Agent - I just wanna hold state over time</ListItem>
-          </List>
+          <Heading size={4} caps textColor="primary">
+            State persists in a GenServer as long as it's running
+          </Heading>
         </Slide>
         <Slide transition={["slide"]} bgColor="black" notes="">
-          <Text textColor="tertiary">
-            OTP has other basic behaviors...
-          </Text>
-          <List textColor="primary">
-            <ListItem>
-              gen_statem - For implementing state machines
-            </ListItem>
-            <ListItem>
-              gen_event - For implementing event handling functionality hold state over time
-            </ListItem>
-          </List>
+          <Heading size={1} fit caps textColor="primary">
+            But what if it crashes?
+          </Heading>
         </Slide>
         <Slide transition={["slide"]} bgColor="black" notes="">
           <Image src={images.onemorething.replace("/", "")} width="500px" margin="40px auto 0px" />
         </Slide>
         <Slide transition={["slide"]} bgColor="black" notes="">
           <Text textColor="tertiary">
-            Supervisor:         
+            Supervisor:
           </Text>
           <Heading size={1} fit caps textColor="primary">
-            Special behavior to manage other behaviors     
-          </Heading>   
+            Special behavior to manage other behaviors
+          </Heading>
         </Slide>
         <Slide transition={["slide"]} bgColor="black" notes="">
           <Text textColor="tertiary">
@@ -796,11 +772,11 @@ export default class Presentation extends React.Component {
         <Slide transition={["slide"]} bgColor="black" notes="">
           <Heading size={4} caps textColor="primary">
             Supervisors can have children that are themselves supervisors for other behaviors
-          </Heading>    
+          </Heading>
         </Slide>
         <Slide transition={["slide"]} bgColor="black" notes="">
           <Heading size={4} caps textColor="primary">
-            Supervision Tree     
+            Supervision Tree
           </Heading>
           <Image src={images.suptree.replace("/", "")} margin="40px auto 0px" />
           <List textColor="primary">
@@ -809,32 +785,44 @@ export default class Presentation extends React.Component {
           </List>
         </Slide>
         <Slide transition={["slide"]} bgColor="black" notes="">
+          <Text textColor="tertiary">
+            Caveat:
+          </Text>
           <Heading size={1} fit caps textColor="primary">
-            But that's not all...
-          </Heading>    
+            Recovering State
+          </Heading>
         </Slide>
         <Slide transition={["slide"]} bgColor="black" notes="">
           <Text textColor="tertiary">
-            Other stuff in OTP
+            There's a tool for that:
           </Text>
           <List textColor="primary">
-            <ListItem>Two Real-time distributed databases</ListItem>
-            <ListItem>Static code analyis (Dializer)</ListItem>
-            <ListItem>Tools to communicate between servers seamlessly</ListItem>
-            <ListItem>Tools to deploy new code without across multiple computers without taking the system down</ListItem>
-            <ListItem>GUI tools to monitor all this</ListItem>
+            <ListItem>ETS - simple in memory database</ListItem>
+            <ListItem>Mnesia - high performance distributed database</ListItem>
+            <Appear>
+              <ListItem>Static code analyis (Dializer)</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>Communicate between servers seamlessly</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>Tools to deploy new code without across multiple computers without taking the system down</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>Observer - tool to monitor all this</ListItem>
+            </Appear>
           </List>
-        </Slide> 
+        </Slide>
         <Slide transition={["slide"]} bgColor="black" notes="">
           <Heading size={1} fit caps textColor="primary">
             OMG OMG OMG!
-          </Heading>    
+          </Heading>
         </Slide>
         <Slide transition={["slide"]} bgColor="black" notes="">
           <Heading size={1} fit caps textColor="primary">
             And now back to our original question...
-          </Heading>    
-        </Slide> 
+          </Heading>
+        </Slide>
         <Slide transition={["slide"]} bgColor="black" notes="">
           <Layout>
             <Fit>
@@ -847,19 +835,19 @@ export default class Presentation extends React.Component {
               </BlockQuote>
             </Fill>
           </Layout>
-        </Slide> 
+        </Slide>
         <Slide transition={["slide"]} bgColor="black" notes="">
           <Heading size={1} fit caps textColor="primary">
             What about Phoenix?
-          </Heading>    
-        </Slide>   
+          </Heading>
+        </Slide>
         <Slide transition={["slide"]} bgColor="black" notes="">
           <Heading size={1} fit caps textColor="primary">
-            Phoenix:      
-          </Heading>  
+            Phoenix:
+          </Heading>
           <Text textColor="tertiary">
             An Web framework Built On Top Of Elixir and the Erlang VM
-          </Text>  
+          </Text>
         </Slide>
         <Slide transition={["slide"]} bgColor="black" notes="">
           <Layout>
@@ -901,8 +889,8 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide transition={["slide"]} bgColor="black" notes="">
           <Heading size={1} fit caps textColor="primary">
-            But it's easy to miss something...      
-          </Heading>  
+            But it's easy to miss something...
+          </Heading>
         </Slide>
         <Slide transition={["slide"]} bgColor="black" notes="">
           <Layout>
@@ -911,7 +899,7 @@ export default class Presentation extends React.Component {
             </Fit>
             <Fill>
               <Heading size={4} caps textColor="primary">
-                You have another toolset as well with immense powers... 
+                You have another toolset as well with immense powers...
               </Heading>
               <Appear>
                 <Text textColor="tertiary">
@@ -935,19 +923,19 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide transition={["slide"]} bgColor="black" notes="">
           <Text textColor="tertiary">
-            The Big Question:         
+            The Big Question:
           </Text>
           <Heading size={4} caps textColor="primary">
             How do you mix a standard web distributed system with the Erlang VM / OTP distributed system?
-          </Heading>   
-        </Slide> 
+          </Heading>
+        </Slide>
         <Slide transition={["slide"]} bgColor="black" notes={notes.doingItAlready}>
           <Text textColor="tertiary">
             Answer 1:
           </Text>
           <Heading size={4} caps textColor="primary">
             You're doing it already
-          </Heading> 
+          </Heading>
         </Slide>
         <Slide transition={["slide"]} bgColor="black" notes={notes.doingItAlready}>
           <Text textColor="tertiary">
@@ -955,37 +943,37 @@ export default class Presentation extends React.Component {
           </Text>
           <Heading size={4} caps textColor="primary">
             To do the stuff you normally do, only easier
-          </Heading> 
+          </Heading>
         </Slide>
         <Slide transition={["slide"]} bgColor="black" notes="">
           <Heading size={1} fit caps textColor="primary">
             An Elixir Package You Should Never See:
           </Heading>
           <Image src={images.sidekiqPro.replace("/", "")} width="600px" margin="40px auto 0px" />
-        </Slide>          
+        </Slide>
         <Slide transition={["slide"]} bgColor="black" notes={notes.doingItAlready}>
           <Text textColor="tertiary">
             Answer 3:
           </Text>
           <Heading size={4} caps textColor="primary">
-            I have no freakin clue... but I have some ideas
-          </Heading> 
-        </Slide> 
+            I have no freakin clue... here are some ideas
+          </Heading>
+        </Slide>
         <Slide transition={["slide"]} bgColor="black" notes={notes.doingItAlready}>
           <Text textColor="tertiary">
             Possible Rule 1:
           </Text>
           <Heading size={4} caps textColor="primary">
             If it's something real-time, don't use the database
-          </Heading> 
-        </Slide> 
+          </Heading>
+        </Slide>
         <Slide transition={["slide"]} bgColor="black" notes="">
           <Text textColor="tertiary">
             Werewolf Game:
           </Text>
           <Heading size={4} caps textColor="primary">
             Mixing PostGres and OTP
-          </Heading>             
+          </Heading>
         </Slide>
         <Slide transition={["slide"]} bgColor="black" notes={notes.doingItAlready}>
           <Heading size={1} fit caps textColor="primary">
@@ -993,33 +981,55 @@ export default class Presentation extends React.Component {
           </Heading>
           <Text textColor="tertiary">
             If it's stored distributed and has to scale, don't use a relational database, use OTP (or Riak!)
-          </Text> 
+          </Text>
           <Appear>
             <Text textColor="tertiary">
               ... and don't bolt on MongoDB ...
             </Text>
           </Appear>
-        </Slide>        
+        </Slide>
         <Slide transition={["slide"]} bgColor="black" notes={notes.onlyAlternative}>
-          <Heading size={1} fit caps textColor="primary">
+          <Heading size={1} fit caps textColor="primary" notes={notes.cacheDatabase}>
             Possible Rule #3:
           </Heading>
           <Text textColor="tertiary">
+            Use OTP to cache your database!
+          </Text>
+          <Appear>
+            <Text textColor="tertiary">More Info: <br /><Link textColor="tertiary" style="text-decoration: underline;" href="https://robots.thoughtbot.com/make-phoenix-even-faster-with-a-genserver-backed-key-value-store">Make Phoenix Even Faster with a GenServer-backed Key Value Store</Link></Text>
+          </Appear>
+        </Slide>
+        <Slide transition={["slide"]} bgColor="black" notes={notes.crudVsOtherStuff}>
+          <Heading size={1} fit caps textColor="primary">
+            Possible Rule #4:
+          </Heading>
+          <Text textColor="tertiary">
+            Databases for CRUD, OTP for everything else
+          </Text>
+          <Appear>
+            <Text textColor="tertiary">More Info: <Link textColor="tertiary" href="https://github.com/rkledesma/process_demo">Tracking Project Builds With OTP</Link></Text>
+          </Appear>
+        </Slide>
+        <Slide transition={["slide"]} bgColor="black" notes={notes.onlyAlternative}>
+          <Heading size={1} fit caps textColor="primary">
+            Possible Rule #5:
+          </Heading>
+          <Text textColor="tertiary">
             Use OTP to do stuff you couldn't do before...
-          </Text> 
+          </Text>
           <Appear>
             <Text textColor="tertiary">
               ...like hot code reloading!
-            </Text> 
+            </Text>
           </Appear>
-        </Slide> 
+        </Slide>
         <Slide transition={["slide"]} bgColor="black" notes={notes.doingItAlready}>
           <Heading size={1} fit caps textColor="primary">
             Cardinal Rule #1:
           </Heading>
           <Text textColor="tertiary">
             If you only know traditional web models...
-          </Text> 
+          </Text>
           <Appear>
             <Text textColor="tertiary">
               ...or only OTP...
@@ -1030,14 +1040,14 @@ export default class Presentation extends React.Component {
               ...learn the other!
             </Text>
           </Appear>
-        </Slide> 
+        </Slide>
         <Slide transition={["slide"]} bgColor="black" notes={notes.doingItAlready}>
           <Heading size={1} fit caps textColor="primary">
             Cardinal Rule #2:
           </Heading>
           <Text textColor="tertiary">
             Once you know both...
-          </Text> 
+          </Text>
           <Appear>
             <Text textColor="tertiary">
               ...Be creative...
@@ -1048,7 +1058,7 @@ export default class Presentation extends React.Component {
               ...Discover new rules!
             </Text>
           </Appear>
-        </Slide>    
+        </Slide>
         <Slide transition={["slide"]} bgColor="black" notes="">
           <Heading size={1} fit caps textColor="primary">
             Origin Of This Talk
@@ -1060,11 +1070,11 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide transition={["slide"]} bgColor="black" notes="">
           <Text textColor="tertiary">
-            This question is huge... 
+            This question is huge...
           </Text>
           <Heading size={4} caps textColor="primary">
             We're all gonna figure it out together!
-          </Heading>      
+          </Heading>
         </Slide>
         <Slide transition={["slide"]} bgColor="black" notes="">
           <Heading size={4} caps textColor="primary">
@@ -1079,7 +1089,7 @@ export default class Presentation extends React.Component {
             http://elixir-otp-phoenix-presentation.techgirlwonder.com
           </Heading>
         </Slide>
-      </Deck>    
+      </Deck>
     );
   }
 }
